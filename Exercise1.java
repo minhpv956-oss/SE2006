@@ -3,76 +3,47 @@ package exercise1;
 
 import java.util.Scanner;
 
-
 public class Exercise1 {
 
+   
     public static void main(String[] args) {
        
-        /*
-        nhập vào a,b,c cạnh của một tam giác sau đó in ra màng 
-        hình xem đó là tam giác gì
-        vuông, cân, đều vuông cân hoặc thường 
-        */
-        System.out.println("enter value of a,b and c:");
+        int min,GCD = 0;
         
         Scanner sc = new Scanner(System.in);
         
-       while(true){
-       
-           try{
-               
-             
-              
         
-               
-               System.out.print("input a:");
-             int a = sc.nextInt();
-               
-               System.out.print("input b:");
-              int b = sc.nextInt();
-               
-               System.out.print("input c:");
-               int c = sc.nextInt();
-               
-               if( a<=0 || b<=0 || c <=0){
-                   System.out.println("not a triangle");
-                   continue;
-                    
-               }else if((a==b &&a*a + b*b==c*c) ||
-                          ( b==c && b*b + c*c == a*a)||
-                            (c == a &&  c*c + a*a == b*b )){
-                   System.out.println("isosceles right triangle");
-                   
-               }else if( a*a + b*b==c*c ||
-                         b*b + c*c == a*a||
-                          c*c + a*a == b*b){
-               
-                   System.out.println("right triangle");
-               }else if(a==b||b==c||c == a){
-                   System.out.println("isosceles triangle");
-
-               } else if(a==b && b==c){ 
-                   System.out.println("equilateral triangle");
-               }
-               
-               else{
-               
-                   System.out.println("nomal triangle");}
-               
-           
-               
-               break;
-               
-           
-           }catch(Exception e){
-               System.out.println("please enter again value!");
-               
-               sc.nextLine();
-           
-           }
-       
-       }
+        System.out.println("input two value number of a and b ");
         
+        System.out.print("Input a:");
+        int a = sc.nextInt();
+        
+        System.out.print("Input b:");
+        int b = sc.nextInt();
+        
+        
+        if(a<b){
+            min = a;
+        }else{
+        min = b;
+        }
+        for(int i = 1; i<=b;i++){
+        
+            if(a%i==0 && b%i==0){
+                System.out.println("Common divisor :"+i);
+                //Great Common Divisor
+                GCD = i;
+            }
+        }
+        
+         System.out.println("Great Common Divisor:" +GCD);
+         
+        //Least Common Multiple
+        
+         int LCM = (a*b)/GCD;
+         
+         System.out.println("Least Common Multiple:"+LCM);
+         
     }
     
 }
